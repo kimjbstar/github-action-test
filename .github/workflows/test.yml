@@ -1,4 +1,4 @@
-name: Tests
+name: unit test
 
 # events but only for the master branch
 # on:
@@ -8,7 +8,7 @@ name: Tests
 #     branches: [ master ]
 
 # events all push
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
