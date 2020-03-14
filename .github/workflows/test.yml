@@ -18,6 +18,7 @@ jobs:
       - name: Run Jest
         uses: stefanoeb/jest-action@1.0.2
       - name: action-slack
+        if: always()
         uses: 8398a7/action-slack@v2
         with:
           status: ${{job.status}}
