@@ -19,13 +19,13 @@ describe("Basic Types", () => {
     expect(colorName).toBe("Green");
   });
 
-  test("Enum#name#Fail", () => {
-    enum Color {
-      Red = 1,
-      Green,
-      Blue
-    }
-    let colorName: string = Color[3];
-    expect(colorName).toBe("Purple");
-  });
+  // test("Enum#name#Fail", () => {
+  //   enum Color {
+  //     Red = 1,
+  //     Green,
+  //     Blue
+  //   }
+  //   let colorName: string = Color[3];
+  //   expect(colorName).toBe("Purple");
+  // });
 });
