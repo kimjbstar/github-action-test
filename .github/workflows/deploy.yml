@@ -29,11 +29,11 @@ jobs:
           PROJECT_ID: ${{secrets.GCE_PROJECT}}
           APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS_BASE64 }}
         with:
-          args: compute scp --zone="asia-northeast1-c" --recurse * development-01:/deploy-test
+          args: compute scp --zone="asia-northeast1-c" --recurse * development-01:~/deploy-test
       - name: Execute
         uses: actions-hub/gcloud@271.0.0
         env:
           PROJECT_ID: ${{secrets.GCE_PROJECT}}
           APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS_BASE64 }}
         with:
-          args: compute ssh --zone="asia-northeast1-c" --recurse * development-01:/deploy-test --command "docker-compose up -d"
+          args: compute ssh --zone="asia-northeast1-c" --recurse * development-01:~/deploy-test --command "docker-compose up -d"
