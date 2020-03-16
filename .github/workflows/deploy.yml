@@ -1,0 +1,35 @@
+name: deploy
+description: 마스터에 푸시, 풀리퀘스트 시에 배포합니다.
+author: kimjbstar
+
+# events but only for the master branch
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+env:
+  GCE_PROJECT: ${{ secrets.GCE_PROJECT }}
+  GCE_INSTANCE: development-01
+  GCE_INSTANCE_ZONE: asia-northeast1-c
+
+jobs:
+  setup-build-publish-deploy:
+    name: Setup, Build, Publish, and Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      # Setup gcloud CLI
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: "270.0.0"
+          service_account_email: ${{ secrets.SA_EMAIL }}
+          service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+
+      - name: Deploy
+        run: |
+          gcloud compute scp --recurse \
+          * development:~
