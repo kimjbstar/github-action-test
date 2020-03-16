@@ -36,4 +36,4 @@ jobs:
           PROJECT_ID: ${{secrets.GCE_PROJECT}}
           APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS_BASE64 }}
         with:
-          args: compute ssh --zone="asia-northeast1-c" --recurse * development-01:~/deploy-test --command "docker-compose up -d"
+          args: compute ssh --zone "asia-northeast1-c" "development-01" --project "nbase-270802" --command "docker-compose up -d"
