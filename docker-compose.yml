@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  rdb:
+    image: mysql:latest
+    volumes:
+      - database_volume:/var/lib/mysql
+    ports:
+      - 3306:3306
+      - 42333:3306
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: nbasedocker
+      MYSQL_USER: kimjbstar
+      MYSQL_PASSWORD: 12091457
+  web01:
+    build:
+      context: .
+      dockerfile: Dockerfile-web
+    ports:
+      - "9999:3000"
+      - "80:3000"
+    depends_on:
+      - "rdb"
+    command:
+      - /bin/bash
+      - -c
+      - |
+        /wait-for-it.sh rdb:42333 -t 0
+        npm run serve
+
+volumes:
+  database_volume:

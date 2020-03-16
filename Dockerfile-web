@@ -6,4 +6,4 @@ ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.s
 RUN npm i -g typescript
 RUN npm install
 RUN tsc
-EXPOSE 3000 
+EXPOSE 4000 

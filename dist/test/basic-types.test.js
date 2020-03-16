@@ -19,15 +19,5 @@ describe("Basic Types", () => {
         let colorName = Color[2];
         expect(colorName).toBe("Green");
     });
-    test("Enum#name#Fail", () => {
-        let Color;
-        (function (Color) {
-            Color[Color["Red"] = 1] = "Red";
-            Color[Color["Green"] = 2] = "Green";
-            Color[Color["Blue"] = 3] = "Blue";
-        })(Color || (Color = {}));
-        let colorName = Color[3];
-        expect(colorName).toBe("Purple");
-    });
 });
 //# sourceMappingURL=basic-types.test.js.map
