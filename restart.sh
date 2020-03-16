@@ -1,0 +1,1 @@
+cd deploy-test && docker-compose up -d
