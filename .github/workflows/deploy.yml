@@ -24,11 +24,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
       - uses: actions-hub/gcloud@271.0.0
+        working-directory: ./
         env:
           PROJECT_ID: ${{secrets.GCE_PROJECT}}
           APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS_BASE64 }}
         with:
-          args: compute scp --zone="asia-northeast1-c" --recurse * development-01:~
+          args: compute scp --zone="asia-northeast1-c" --recurse * development-01:~/deploy-test
       # # Setup gcloud CLI
       # - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
       #   with:
