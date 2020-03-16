@@ -1,0 +1,9 @@
+FROM node:10
+ENV NODE_ENV local
+WORKDIR /usr/src/app
+COPY . .
+ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /
+RUN npm i -g typescript
+RUN npm install
+RUN tsc
+EXPOSE 3000 

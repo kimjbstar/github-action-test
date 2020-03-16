@@ -1,4 +1,4 @@
-name: Tests
+name: unit test
 
 # events but only for the master branch
 # on:
@@ -8,13 +8,21 @@ name: Tests
 #     branches: [ master ]
 
 # events all push
-on: [push]
+on: [push, pull_request]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Run Jest
         uses: stefanoeb/jest-action@1.0.2
+      - name: action-slack
+        if: always()
+        uses: 8398a7/action-slack@v2
+        with:
+          status: ${{job.status}}
+          author_name: bot-test
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # required
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
