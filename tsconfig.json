@@ -14,7 +14,7 @@
       "@src/*": ["./src/*"]
     },
     // "rootDirs": [ ], // 가상 디덱토리를 설정
-    // "rootDir": "./", // 입력파일의 rootDir 설정
+    "rootDir": "./src", // 입력파일의 rootDir 설정
     "outDir": "./dist",
     // "outFile": "", // 단일파일로 출력시 파일명
     /////////// declaration ///////////
