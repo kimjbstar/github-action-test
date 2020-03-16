@@ -24,7 +24,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
       - uses: actions-hub/gcloud@271.0.0
-        working-directory: ./
         env:
           PROJECT_ID: ${{secrets.GCE_PROJECT}}
           APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS_BASE64 }}
