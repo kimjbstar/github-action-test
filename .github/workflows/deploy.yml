@@ -26,7 +26,7 @@ jobs:
       - uses: actions-hub/gcloud@271.0.0
         env:
           PROJECT_ID: ${{secrets.GCE_PROJECT}}
-          APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
+          APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS_BASE64 }}
         with:
           args: compute scp --recurse * development-01:~
       # # Setup gcloud CLI
