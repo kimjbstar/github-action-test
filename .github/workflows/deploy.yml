@@ -1,6 +1,4 @@
 name: deploy
-description: 마스터에 푸시, 풀리퀘스트 시에 배포합니다.
-author: kimjbstar
 
 # events but only for the master branch
 on:

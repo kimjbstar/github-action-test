@@ -1,6 +1,4 @@
 name: unit test
-description: 푸시, 풀리퀘스트 시에마다 단위테스트를 수행합니다.
-author: kimjbstar
 
 # events but only for the master branch
 # on:
